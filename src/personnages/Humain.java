@@ -45,12 +45,22 @@ public class Humain {
 		
 		if (this.argent < prix)
 		{
-			System.out.println(parler() + "Je n'ai plus que " + this.argent + " en poche. Je ne peux même pas m'offrir " + bien + " à " + prix + " sous.");
+			System.out.println(parler() + "Je n'ai plus que " + this.argent + " berry(s) en poche. Je ne peux même pas m'offrir " + bien + " à " + prix + " berry(s).");
 		}
 		else
 		{
-			System.out.println(parler() + "J'ai " + this.argent + " sous en poche. Je vais pouvoir m'offrir " + bien + " à " + prix + " sous.");
+			System.out.println(parler() + "J'ai " + this.argent + " berry(s) en poche. Je vais pouvoir m'offrir " + bien + " à " + prix + " berry(s).");
 			perdreArgent(prix);
 		}
+	}
+
+	public int getArgent()
+	{
+		return this.argent;
+	}
+
+	public String getNom()
+	{
+		return this.nom;
 	}
 }
