@@ -5,7 +5,11 @@ public class Humain {
 	private String nom;
 	private String boissonFav;
 	private int argent;
+
+	protected int nbConnaissance;
+	protected Humain[] memoire = new Humain[30];
 	
+
 	public Humain(String nom, String boissonFav, int argent)
 	{
 		this.nom = nom;
@@ -13,7 +17,55 @@ public class Humain {
 		this.argent = argent;
 	}
 	
-	public String parler()
+
+
+	public void faireConnaissanceAvec(Humain humain)
+	{
+		direBonjour();
+		memoriser(humain);
+		humain.repondre(this);
+	}
+
+	private void memoriser(Humain humain)
+	{
+		memoire[ nbConnaissance%31 ] = humain;
+		nbConnaissance += 1;
+	}
+
+	private void repondre(Humain humain)
+	{
+		direBonjour();
+		memoriser(humain);
+	}
+
+
+	public void listerConnaissance()
+	{
+		String liste = "";
+		for (int i = 0; i < nbConnaissance; i++)
+		{
+			if (i == 0)
+			{
+				liste += memoire[i].getNom();
+			}
+			else
+			{
+				liste += ", " + memoire[i].getNom();
+			}
+			
+		}
+		System.out.println(parler() + "Je connais beaucoup de monde dont : " + liste + ".");
+	}
+
+
+
+
+
+
+
+
+
+	protected String parler()
 	{
 		return (this.nom + " : ");
 	}
@@ -29,12 +81,12 @@ public class Humain {
 	}
 	
 	
-	public void gagnerArgent(int gain)
+	protected void gagnerArgent(int gain)
 	{
 		this.argent += gain;
 	}
 	
-	public void perdreArgent(int perte)
+	protected void perdreArgent(int perte)
 	{
 		this.argent -= perte;
 	}
@@ -63,4 +115,10 @@ public class Humain {
 	{
 		return this.nom;
 	}
+
+
+
+
+
+
 }
