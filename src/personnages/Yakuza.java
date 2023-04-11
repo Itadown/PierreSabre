@@ -13,6 +13,14 @@ public class Yakuza extends Humain {
         this.clan = clan;
     }
 
+    @Override
+    public void direBonjour()
+    {
+        super.direBonjour();
+        System.out.println(parler() + "Mon clan est celui de " + clan + ".");
+    }
+
+
     public void extorquer(Commercant commercant)
     {
         System.out.println(parler() + "Tiens, tiens, ne serai-ce pas un faible marchand qui passe par là ?");

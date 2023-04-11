@@ -6,7 +6,7 @@ public class Humain {
 	private String boissonFav;
 	private int argent;
 
-	protected int nbConnaissance;
+	protected int nbConnaissance = 0;
 	protected Humain[] memoire = new Humain[30];
 	
 
@@ -28,7 +28,7 @@ public class Humain {
 
 	private void memoriser(Humain humain)
 	{
-		memoire[ nbConnaissance%31 ] = humain;
+		memoire[ (nbConnaissance%30) ] = humain;
 		nbConnaissance += 1;
 	}
 
@@ -42,7 +42,16 @@ public class Humain {
 	public void listerConnaissance()
 	{
 		String liste = "";
-		for (int i = 0; i < nbConnaissance; i++)
+		int lim;
+		if (nbConnaissance > 30)
+		{
+			lim = 30;
+		}
+		else
+		{
+			lim = nbConnaissance;
+		}
+		for (int i = 0; i < lim; i++)
 		{
 			if (i == 0)
 			{
