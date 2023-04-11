@@ -1,6 +1,8 @@
 package histoire;
 import personnages.Humain;
 import personnages.Commercant;
+import personnages.Yakuza;
+import personnages.Ronin;
 
 public class HistoireTP4 {
 	
@@ -19,13 +21,20 @@ public class HistoireTP4 {
 
 		Commercant nami = new Commercant("Nami", 500000);
 		nami.direBonjour();
-		nami.seFaireExtorquer();
-		nami.recevoir(15000000);
-		nami.boire();
+
 
 		System.out.println("\n");
 
 		Yakuza kaido = new Yakuza("Kaido", "du saké", 125, "Equipage des 100 bêtes");
-		 
+		kaido.direBonjour();
+		kaido.extorquer(nami);
+
+
+		Ronin sanji = new Ronin("Sanji", "du sang", 60);
+
+		sanji.direBonjour();
+		sanji.donner(nami);
+		
+		sanji.provoquer(kaido);
 	}
 }
